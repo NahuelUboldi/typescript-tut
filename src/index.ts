@@ -103,4 +103,24 @@ class Person implements PersonInterface {
 
 const brad = new Person(1, 'Brad');
 
-console.log(brad.register());
+// subclasses
+class Employee extends Person {
+  position: string;
+
+  constructor(id: number, name: string, position: string) {
+    super(id, name);
+    this.position = position;
+  }
+}
+
+const emp = new Employee(3, 'Shawn', 'Developer');
+
+// generics
+function getArray<T>(items: T[]): T[] {
+  // T works as a playholder for the type
+  return new Array().concat(items);
+}
+let numArray = getArray<number>([1, 2, 3, 4]);
+let strArray = getArray<string>(['Brad', 'John', 'Jill']);
+
+numArray.push(6);

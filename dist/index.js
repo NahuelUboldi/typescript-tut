@@ -62,4 +62,19 @@ class Person {
     }
 }
 const brad = new Person(1, 'Brad');
-console.log(brad.register());
+// subclasses
+class Employee extends Person {
+    constructor(id, name, position) {
+        super(id, name);
+        this.position = position;
+    }
+}
+const emp = new Employee(3, 'Shawn', 'Developer');
+// generics
+function getArray(items) {
+    // T works as a playholder for the type
+    return new Array().concat(items);
+}
+let numArray = getArray([1, 2, 3, 4]);
+let strArray = getArray(['Brad', 'John', 'Jill']);
+numArray.push(6);
